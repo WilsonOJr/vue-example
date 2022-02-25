@@ -1,0 +1,32 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <p>{{ contador }}</p>
+    <button v-on:click="somarContador(5, $event)">Somar 5 no contador</button>
+    <button v-on:click="limparContaor">Limpar contador</button>
+    <p v-on:mousemove="aualizarXY">Mouse: {{ x }} e {{ y }}</p>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            contador: 0,
+            x: 0,
+            y: 0
+        },
+        methods: {
+            somarContador(add, e){
+                console.log(e);
+                this.contador += add;
+            },
+            limparContaor(){
+                this.contador = 0;
+            },
+            aualizarXY(e){
+                this.x = e.clientX;
+                this.y = e.clientY;
+            }
+        }
+    });
+</script>

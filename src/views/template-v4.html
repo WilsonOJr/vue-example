@@ -1,0 +1,25 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <p v-once>{{ titulo }}</p> <!--  v-once não deixa o titulo ser renderizado mesmo a funcao saudacao mudando ele   -->
+    <p>{{ saudacao() }}</p>
+    <a v-bind:href="link">Google</a>
+    <p>{{ titulo }}</p>
+</div>
+
+<script>
+    new Vue({
+       el: '#app',
+        data: {
+            titulo: 'Usando VueJS!',
+            saudacaotxt: 'Boa Semana!',
+            link: 'https://google.com.br'
+        },
+        methods:{
+            saudacao: function() {
+                this.titulo = 'Bom dia!'
+                return this.saudacaotxt
+            }
+        }
+    });
+</script>
